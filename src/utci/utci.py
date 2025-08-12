@@ -47,7 +47,7 @@ def es(ta: float) -> float:
 
     es_val = np.exp(es_val) * 0.01  # Convert Pa to hPa
 
-    return es_val
+    return float(es_val)
 
 
 def rh_to_vp(ta: float, rh: float) -> float:
