@@ -303,14 +303,6 @@ If you encounter any problems or have suggestions, please [open an issue](https:
 
 See [CHANGELOG.md](CHANGELOG.md) for a detailed history of changes.
 
-## Roadmap
-
-- [ ] Add vectorized operations support for NumPy arrays
-- [ ] Implement additional thermal comfort indices
-- [ ] Add climate data integration capabilities
-- [ ] Create web-based calculator interface
-- [ ] Develop comprehensive documentation with Jupyter notebooks
-
 ---
 
 **Note**: This is not an official implementation. For the original reference implementation and additional information about UTCI, visit [utci.org](http://www.utci.org/).

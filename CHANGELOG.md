@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Moved tests to `tests/` directory
 - Updated project configuration to use `pyproject.toml`
 
-## [1.0.0] - 2024-12-01
+## [1.0.0] - 2025-08-12
 
 ### Added
 - Initial release of UTCI Python implementation
