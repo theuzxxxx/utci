@@ -6,7 +6,7 @@ translated from the original Fortran code (Version a 0.002, October 2009).
 
 This package provides functions for calculating the UTCI based on:
 - Air temperature
-- Mean radiant temperature  
+- Mean radiant temperature
 - Wind speed
 - Water vapor pressure or relative humidity
 
@@ -24,12 +24,9 @@ Basic usage:
 For more information, see: https://github.com/marvell/utci
 """
 
-from .utci import (
-    es,
-    rh_to_vp,
-    utci_approx
-)
 from ._version import __version__
+from .utci import es, rh_to_vp, utci_approx
+
 __author__ = "Marvell"
 __license__ = "MIT"
 

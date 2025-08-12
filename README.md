@@ -62,13 +62,13 @@ print(f"UTCI: {utci_value:.1f} °C")
 
 ### Main Functions
 
-#### `utci_approx(ta, ehPa, tmrt, va) -> float`
+#### `utci_approx(ta, eh_pa, tmrt, va) -> float`
 
 Calculate the Universal Thermal Climate Index using polynomial approximation.
 
 **Parameters:**
 - `ta` (float): Air temperature [°C]
-- `ehPa` (float): Water vapor pressure [hPa]
+- `eh_pa` (float): Water vapor pressure [hPa]
 - `tmrt` (float): Mean radiant temperature [°C]
 - `va` (float): Wind speed at 10m height [m/s]
 

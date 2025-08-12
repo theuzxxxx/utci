@@ -6,23 +6,23 @@ Copyright (C) 2009 Peter Broede
 Python translation maintains exact numerical compatibility with original Fortran code.
 """
 
+
 import numpy as np
-from typing import Union
 
 
 def es(ta: float) -> float:
     """
     Calculate saturation vapor pressure over water.
-    
+
     Uses Hardy's ITS-90 formulation for vapor pressure calculation.
     Reference: Hardy, R.; ITS-90 Formulations for Vapor Pressure, Frostpoint Temperature,
     Dewpoint Temperature and Enhancement Factors in the Range -100 to 100 °C;
-    Proceedings of Third International Symposium on Humidity and Moisture; 
+    Proceedings of Third International Symposium on Humidity and Moisture;
     edited by National Physical Laboratory (NPL), London, 1998, pp. 214-221
-    
+
     Args:
         ta: Air temperature in Celsius
-        
+
     Returns:
         Saturation vapor pressure in hPa
     """
@@ -37,53 +37,53 @@ def es(ta: float) -> float:
         -1.8680009e-13,
         2.7150305
     ])
-    
+
     tk = ta + 273.15  # Convert to Kelvin
-    
+
     # Calculate es using polynomial
     es_val = g[7] * np.log(tk)
     for i in range(7):
         es_val += g[i] * tk**(i - 2)
-    
+
     es_val = np.exp(es_val) * 0.01  # Convert Pa to hPa
-    
+
     return es_val
 
 
 def rh_to_vp(ta: float, rh: float) -> float:
     """
     Convert relative humidity to vapor pressure.
-    
+
     Args:
         ta: Air temperature in Celsius
         rh: Relative humidity in percent (0-100)
-        
+
     Returns:
         Vapor pressure in hPa
     """
     return es(ta) * rh / 100.0
 
 
-def utci_approx(ta: float, ehPa: float, tmrt: float, va: float) -> float:
+def utci_approx(ta: float, eh_pa: float, tmrt: float, va: float) -> float:
     """
     Calculate UTCI using 6th order polynomial approximation.
-    
+
     UTCI Version a 0.002, October 2009
     Copyright (C) 2009 Peter Broede
-    
+
     Args:
         ta: Air temperature in Celsius (-50 to +50°C)
-        ehPa: Water vapor pressure in hPa (max 50 hPa)
+        eh_pa: Water vapor pressure in hPa (max 50 hPa)
         tmrt: Mean radiant temperature in Celsius (30°C below to 70°C above ta)
         va: Wind speed at 10m height in m/s (0.5 to 17 m/s)
-        
+
     Returns:
         UTCI value in Celsius
     """
     # Calculate derived variables
     d_tmrt = tmrt - ta
-    pa = ehPa / 10.0  # Convert to kPa
-    
+    pa = eh_pa / 10.0  # Convert to kPa
+
     # 6th order polynomial approximation with 210 coefficients
     # Direct translation from Fortran code
     utci = ta + \
@@ -297,5 +297,5 @@ def utci_approx(ta: float, ehPa: float, tmrt: float, va: float) -> float:
         1.04452989e-03 * va*pa*pa*pa*pa*pa + \
         2.47090539e-04 * d_tmrt*pa*pa*pa*pa*pa + \
         1.48348065e-03 * pa*pa*pa*pa*pa*pa
-    
+
     return utci
