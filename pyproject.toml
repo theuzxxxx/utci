@@ -7,10 +7,10 @@ name = "utci"
 version = "1.0.0"
 description = "Python implementation of Universal Thermal Climate Index (UTCI)"
 authors = [
-    {name = "Marvell", email = ""},
+    {name = "Alex Zemliakov", email = "alex@ndr.su"},
 ]
 maintainers = [
-    {name = "Marvell", email = ""},
+    {name = "Alex Zemliakov", email = "alex@ndr.su"},
 ]
 readme = "README.md"
 license = {text = "MIT"}
