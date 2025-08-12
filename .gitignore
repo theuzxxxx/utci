@@ -164,3 +164,6 @@ analysis_report.md
 
 # uv
 uv.lock
+
+# Claude settings (local only)
+.claude/settings.local.json
